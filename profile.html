@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfilePage</title>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./mainLogic.js" defer></script>
+    <script src="./profile.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+</head>
+<body class="bg-primary-subtle" id="body">
+    <!-- ========================= Modals  ========================= -->
+    <!-- Login -->
+    <div class="modal fade" id="Login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pb-0">
+                    <form>
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">
+                                <img src="./picture/usernamelogin.png">
+                            </span>
+                            <input type="text" class="form-control" placeholder="Username" aria-describedby="addon-wrapping" id="UsernameLogin">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">
+                                <img src="./picture/padlockllogin.png">
+                            </span>
+                            <input type="password" class="form-control" placeholder="Password" aria-describedby="addon-wrapping"  id="PasswordLogin">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="messageError">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="loginUser()">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Login //-->
+
+    <!-- Register -->
+    <div class="modal fade" id="Register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Register</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <img src="./picture/id-card.png">
+                                </span>
+                                <input type="text" aria-label="First name" class="form-control" placeholder="Name" id="FirstName">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap mt-4">
+                                <span class="input-group-text" id="addon-wrapping">
+                                    <img src="./picture/email.png">
+                                </span>
+                                <input type="Email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" id="Email">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap mt-4">
+                                <span class="input-group-text" id="addon-wrapping">
+                                    <img src="./picture/username.png">
+                                </span>
+                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" id="Username">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap mt-4">
+                                <span class="input-group-text" id="addon-wrapping">
+                                    <img src="./picture/padlock.png">
+                                </span>
+                                <input type="password" class="form-control" placeholder="Passowrd" aria-label="Username" aria-describedby="addon-wrapping" id="Password">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap mt-4">
+                                <span class="input-group-text" id="addon-wrapping">
+                                    <img src="./picture/confirm.png">
+                                </span>
+                                <input type="password" class="form-control" placeholder="Confirm Passowrd" aria-label="Username" aria-describedby="addon-wrapping" id="ConfirmPassword">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="flex-nowrap mt-4 input-group-text" style="justify-content: space-between;">
+                                <input type="file" class="form-control d-none" id="ProfileImg">
+                                <h5 style="margin: 0; padding:0; text-wrap: wrap; text-align: left;">
+                                  <label for="ProfileImg" style="cursor: pointer;">Profile Img</label>
+                                  <span style="font-size: 14px; color:gray"> (optional)</span>
+                                  <span style="font-size: 14px; color:gray">(Not supported due to some technical issues)</span>
+                                </h5>
+                                <label for="ProfileImg" style="cursor: pointer;">
+                                  <img id="imageBtn" src="./picture/arrow-up.png" style="border: 1px solid gray; width: 90px; height: 90px; padding: 10px" class="rounded-circle">
+                                </label>
+                              </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="messageErrorR">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="register()">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Register //-->
+
+    <!-- Edit Profile -->
+    <div class="modal fade" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Edit Profile</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <img src="./picture/id-card.png">
+                                </span>
+                                <input type="text" aria-label="First name" class="form-control" placeholder="Name" id="nameEDIT">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap mt-4">
+                                <span class="input-group-text" id="addon-wrapping">
+                                    <img src="./picture/email.png">
+                                </span>
+                                <input type="Email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" id="emailEDIT">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap mt-4">
+                                <span class="input-group-text" id="addon-wrapping">
+                                    <img src="./picture/username.png">
+                                </span>
+                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" disabled id="usernameEDIT">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="messageErrorEDIT">
+                </div>
+                <input type="hidden" value="" id="checkbuttonedit">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="updateProfile()">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Edit Profile //-->
+
+    <!-- Create And Edit Post -->
+    <div class="modal fade" id="CreateAndEditPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalTitle">Create Post</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pb-0">
+                    <form>
+                        <div>
+                            <span style="color: gray;" class="m-2">tags(optional) (Not supported yet)</span>
+                            <div class="mb-3">
+                                <div class="input-group flex-wrap">
+                                    <div class="form-check m-2">
+                                        <input class="form-check-input" name="tags" type="checkbox" value="sports" id="sports">
+                                        <label class="form-check-label" for="sports">
+                                            sports
+                                        </label>
+                                    </div>
+                                    <div class="form-check m-2">
+                                        <input class="form-check-input" name="tags" type="checkbox" value="policy" id="policy">
+                                        <label class="form-check-label" for="policy">
+                                            policy
+                                        </label>
+                                    </div>
+                                    <div class="form-check m-2">
+                                        <input class="form-check-input" name="tags" type="checkbox" value="economy" id="economy">
+                                        <label class="form-check-label" for="economy">
+                                            economy
+                                        </label>
+                                    </div>
+                                    <div class="form-check m-2">
+                                        <input class="form-check-input" name="tags" type="checkbox" value="entertainment" id="entertainment">
+                                        <label class="form-check-label" for="entertainment">
+                                            entertainment
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap">
+                                <input type="text" class="form-control" placeholder="Title(optional)" aria-describedby="addon-wrapping" id="PostTitle">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap">
+                                <textarea type="text" class="form-control" placeholder="Body" aria-describedby="addon-wrapping"  id="PostBody"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group flex-nowrap">
+                                <input type="file" class="form-control" aria-describedby="addon-wrapping"  id="PostImg">
+                            </div>
+                        </div>
+                    </form>
+                    <input type="hidden" value="" id="idToEditPost">
+                </div>
+                <div id="messageErrorP">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="buttonSubmit" onclick="CreateAndEditPost()">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Create And Edit Post //-->
+
+    <!-- Post Info -->
+    <div class="modal fade modalPostInfo" tabindex="-1" id="postInfo">
+    <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center w-100" id="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pb-0" id="modal-body"  style="max-height: 86.5vh; overflow-y: auto;">
+                    <!-- ============= post body ============= -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Post Info //-->
+
+    <!-- Delete Post -->
+    <div class="modal fade" id="DeletePost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" style="font-size: 18.5px !important;">The post will be permanently deleted. Are you sure?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <input type="hidden" id="idDelete">
+                </div>
+                <div id="messageErrorD">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" onclick="deletePost()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Delete Post //-->
+    <!--// ========================= Modals  ========================= //-->
+
+    <!-- loader -->
+    <div class="loaderContainer" id="loader">
+        <div class="loader"></div>
+    </div>
+    <!--// loader //-->
+
+    <!-- navegation bar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow rounded p-3" id="navbar">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Comrades</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active hoverNavBar" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link hoverNavBar" onclick="permisionToProfile()" style="cursor: pointer;">Profile</a>
+            </li>
+            </ul>
+            <div id="buttonsRL">
+            <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#Login" onclick="clearRL()">Login</button>
+            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#Register" onclick="clearRL()">Register</button>
+            </div>
+            <div class="d-flex gap-2 align-items-center" id="loggedin" style="display: none;">
+            </div>
+        </div>
+        </div>
+    </nav>
+    <!--// navegation bar //-->
+
+    <!-- container profile card-->
+    <div class="container containerMaxW mt-5" id="containerProfile">
+
+        <!-- profile card -->
+        <!--// profile card //-->
+
+    </div>
+    <!--// container profile card//-->
+
+    <!-- post titles -->
+    <div class="container mt-4 text-center" id="titlePosts">
+    </div>
+    <!--// post titles //-->
+
+    <!-- container profile posts-->
+    <div class="container containerMaxW mb-5 mt-3" id="containerProfile">
+
+        <!-- posts -->
+        <div id="posts">
+
+            <!-- post -->
+            <!--// post //-->
+
+        </div>
+        <!--// posts //-->
+
+    </div>
+    <!--// container profile posts//-->
+
+    <!-- successAlert -->
+    <div id="successAlert" style="min-width: 30%;"></div>
+    <!--// successAlert //-->
+
+    <!-- scroll button -->
+    <button id="scrollTopBtn" type="button" class="scroll-top-btn bg-black" style="box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"/>
+        </svg>
+    </button>
+    <!--// scroll button //-->
+
+    <!-- copy right -->
+    <div style="position: fixed; bottom: 0; left: 0; padding: 0 10px; font-size: 12px;">
+        &copy; 2024 Ziad Ahmed Shalaby
+    </div>
+    <!--// copy right //-->
+</body>
+</html>
+<!-- ================================ -->
+<!-- Programmed by Ziad Ahmed Shalaby -->
+<!-- ================================ -->

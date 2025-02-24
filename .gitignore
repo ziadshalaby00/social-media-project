@@ -1,0 +1,27 @@
+
+# مجلدات التبعية
+node_modules/
+npm-debug.log
+yarn-error.log
+.pnp/
+.pnp.js
+
+# ملفات البناء (التي يتم إنشاؤها عند تشغيل `npm run build`)
+dist/
+build/
+.out/
+
+# إعدادات بيئة العمل
+.env.local
+.env.development
+.env.production
+.env.test
+.env*.local
+
+# VS Code و WebStorm و IDEs الأخرى
+.vscode/
+.idea/
+.DS_Store
+
+# مجلدات التغطية والاختبار
+coverage/

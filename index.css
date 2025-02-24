@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    min-width: 276px;
+}
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+    color: #007bff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; 
+    transition: opacity 0.3s;
+}
+.scroll-top-btn:hover {
+    background-color: #0056b3;
+}
+.add-post-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50% !important;
+}
+.profileImg {
+    width: 45px;
+    height: 45px;
+}
+.userNameHeader {
+    display: inline;
+}
+.date {
+    font-size: 14px;
+}
+.containerMaxW {
+    max-width: 800px !important;
+}
+#successAlert {
+    position: fixed; 
+    bottom: 10px; 
+    right: 20px; 
+    z-index: 99999;
+}
+.click:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.modalPostInfo {
+    --bs-modal-width: 800px !important;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid lightblue;
+    border-right-color: orange;
+    animation: l2 1s infinite linear;
+}
+@keyframes l2 {to{transform: rotate(1turn)}}
+.loaderContainer {
+    display: none;
+    background-color: rgba(175, 175, 175, 0.788);
+    padding: 10px;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+/* ================================ */
+/* Programmed by Ziad Ahmed Shalaby */
+/* ================================ */
