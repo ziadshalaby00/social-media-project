@@ -7,3 +7,6 @@ HTML - CSS - JavaScript - Bootstrap 5 - Vanilla JS - Axios - API
 
 # Concepts Used
 CRUD - Authentication - Pagination - Infinite Scrolling - Permissions - Filtering
+
+# Netlify Link
+https://pathtodone.netlify.app
