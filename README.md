@@ -1,12 +1,36 @@
 # Comrades
-# Social Media Project (Frontend)
-A frontend project for a social media platform that relies on an API and supports account creation, profile editing, login and logout, posting, commenting, viewing posts, and additional features.
 
-# Technologies Used
-HTML - CSS - JavaScript - Bootstrap 5 - Vanilla JS - Axios - API
+A lightweight social media frontend built with vanilla JavaScript. Users can create accounts, publish posts, drop comments, edit profiles, and browse content with infinite scrolling.
 
-# Concepts Used
-CRUD - Authentication - Pagination - Infinite Scrolling - Permissions - Filtering
+## Live Demo
 
-# Netlify Link
-https://pathtodone.netlify.app
+🔗 [https://pathtodone.netlify.app](https://pathtodone.netlify.app)
+
+## Features
+
+- **Auth** — Register, login, logout with token-based auth
+- **Posts** — Create, edit, delete, and view posts with images
+- **Comments** — Comment on any post in real time
+- **Profile** — View any user's profile with stats; edit your own
+- **Infinite Scroll** — Auto-load more posts as you scroll
+- **Permissions** — Edit/delete controls only for post owners
+
+## Tech Stack
+
+| Layer | Tech |
+|-------|------|
+| Markup | HTML5 |
+| Styling | CSS3, Bootstrap 5 |
+| Logic | Vanilla JavaScript |
+| HTTP Client | Axios |
+| Backend API | REST API (tarmeezacademy.com) |
+
+## Concepts Used
+
+- CRUD Operations
+- JWT Authentication
+- Pagination & Infinite Scrolling
+- Role-based Permissions
+- Content Filtering
+
+---
