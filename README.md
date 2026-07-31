@@ -4,7 +4,7 @@ A lightweight social media frontend built with vanilla JavaScript. Users can cre
 
 ## Live Demo
 
-🔗 [https://pathtodone.netlify.app](https://pathtodone.netlify.app)
+🔗 [https://comardes3c0399.netlify.app](https://comardes3c0399.netlify.app)
 
 ## Features
 
