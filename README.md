@@ -34,3 +34,11 @@ A lightweight social media frontend built with vanilla JavaScript. Users can cre
 - Content Filtering
 
 ---
+
+## 📄 License
+
+Developed entirely by [Ziad Shalaby](https://github.com/ziadshalaby00).
+
+This project is licensed under the **MIT License**.
+
+---
