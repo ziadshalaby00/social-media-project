@@ -134,7 +134,7 @@ function showPostsInDivProfile(userId) {
       <div class="card shadow-sm mt-4">
         <div class="card-header">
           <span style="cursor:pointer;" onclick="toProfileUsers(${author.id})">
-            <img class="rounded-circle border border-2 profileImg" src="${profileImage}" alt="user img">
+            <img class="rounded-circle border-2 profileImg" src="${profileImage}" alt="user img">
             <h6 class="userNameHeader" style="margin: 0;">${authorName}</h6>
           </span>
           <button type="button" class="btn btn-danger float-end  mt-1 ms-1" ${editButton} onclick="openModalDeletePost(${post.id})">Delete</button>

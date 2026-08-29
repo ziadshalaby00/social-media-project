@@ -60,7 +60,7 @@ function setNavBar() {
         let model = `
         <span class="d-flex gap-2 align-items-center" style="cursor: pointer" onclick="permisionToProfile()">
             <h5>${user.name}</h5>
-            <img src="${profileImg}" class="rounded-circle border border-2 profileImg">
+            <img src="${profileImg}" class="rounded-circle border-2 profileImg">
         </span>
         <button type="button" class="btn btn-outline-danger" onclick="logout()">Logout</button>
         `
@@ -370,7 +370,7 @@ function postInfo(id) {
             <div class="card mt-4 border-0">
                 <div class="card-header bg-primary-subtle">
                     <span style="cursor: pointer" onclick="toProfileUsers(${author.id})">
-                        <img class="rounded-circle border border-2 profileImg" src="${profileImage}" alt="user img">
+                        <img class="rounded-circle border-2 profileImg" src="${profileImage}" alt="user img">
                         <h6 class="userNameHeader" style="margin: 0;">${authorName}</h6>
                     </span>
                 </div>
@@ -393,7 +393,7 @@ function postInfo(id) {
                 <div id="comments" class="card-footer text-body-secondary bg-white py-4">
                     <!-- Creat Comment -->
                     <div class="d-flex gap-2 sticky-bottom bg-white>
-                        <img class="rounded-circle border border-2 profileImg" src="${userImage}" alt="user img">
+                        <img class="rounded-circle border-2 profileImg" src="${userImage}" alt="user img">
                         <div class="input-group mb-3 mt-2">
                             <input type="text" class="form-control" placeholder="Comment" aria-label="Recipient's username" aria-describedby="button-addon2">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
@@ -427,7 +427,7 @@ function postInfo(id) {
             let profileImage = typeof comment.author.profile_image === "string" ? comment.author.profile_image : './picture/user.png';
             let modelComment = `<!-- comment -->
                 <div class="d-flex gap-2 mb-4">
-                    <img class="rounded-circle border border-2 profileImg" src="${profileImage}" alt="user img" style="cursor: pointer" onclick="toProfileUsers(${comment.author.id})">
+                    <img class="rounded-circle border-2 profileImg" src="${profileImage}" alt="user img" style="cursor: pointer" onclick="toProfileUsers(${comment.author.id})">
                     <div class="bg-body-secondary py-3 px-4" style="border-radius: 20px;">
                         <span style="cursor: pointer" onclick="toProfileUsers(${comment.author.id})"><strong>${comment.author.name}</strong></span>
                         <div class="mt-2">
@@ -441,7 +441,7 @@ function postInfo(id) {
         }
         comments.innerHTML += `<!-- Creat Comment -->
         <div class="d-flex gap-2 sticky-bottom bg-white py-4" id="CreateComment">
-        <img class="rounded-circle border border-2 profileImg" src="${userImage}" alt="user img">
+        <img class="rounded-circle border-2 profileImg" src="${userImage}" alt="user img">
         <div class="input-group mb-3 mt-2">
             <textarea id="addcomment" rows="1"  type="text" class="form-control" placeholder="Comment" aria-label="Recipient's username" aria-describedby="button-addon2"></textarea>
             <button class="btn btn-outline-primary" type="button" id="button-addon2" onclick="addComment(${post.id})">Submit</button>
