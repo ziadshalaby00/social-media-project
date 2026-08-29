@@ -25,7 +25,7 @@ function showPostsInDiv(page, limit=8) {
       let user = JSON.parse(localStorage.getItem("user"));
       let editButton = user ? user.id == author.id ? "" : "hidden" : "hidden";
 
-      let profileImage = typeof author.profile_image === "string" ? author.profile_image : '../picture/user.png';
+      let profileImage = typeof author.profile_image === "string" ? author.profile_image : './picture/user.png';
       // let postTitle = post.title !== null ? (post.title.includes('[') ? JSON.parse(post.title) : post.title) : '';
 
       let transformerDiv = document.createElement("div")
@@ -47,7 +47,7 @@ function showPostsInDiv(page, limit=8) {
       <div class="card shadow-sm mt-4">
         <div class="card-header">
           <span style="cursor:pointer;" onclick="toProfileUsers(${author.id})">
-            <img class="rounded-circle border-2 profileImg" src="${profileImage}" alt="user img">
+            <img class="rounded-circle border border-2 profileImg" src="${profileImage}" alt="user img">
             <h6 class="userNameHeader" style="margin: 0;">${authorName}</h6>
           </span>
           <button type="button" class="btn btn-danger float-end  mt-1 ms-1" ${editButton} onclick="openModalDeletePost(${post.id})">Delete</button>

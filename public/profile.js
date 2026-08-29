@@ -14,7 +14,7 @@ function setProfileCard(userId) {
   .then((response) => {
     user = response.data.data
 
-    profileImg = typeof user.profile_image === "string" ? user.profile_image : "../picture/user.png"
+    profileImg = typeof user.profile_image === "string" ? user.profile_image : "./picture/user.png"
     name = user.name
     username = user.username
     email = user.email
@@ -112,7 +112,7 @@ function showPostsInDivProfile(userId) {
       let user = JSON.parse(localStorage.getItem("user"));
       let editButton = user ? user.id == author.id ? "" : "hidden" : "hidden";
 
-      let profileImage = typeof author.profile_image === "string" ? author.profile_image : '../picture/user.png';
+      let profileImage = typeof author.profile_image === "string" ? author.profile_image : './picture/user.png';
       // let postTitle = post.title !== null ? (post.title.includes('[') ? JSON.parse(post.title) : post.title) : '';
 
       let transformerDiv = document.createElement("div")
