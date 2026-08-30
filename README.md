@@ -2,10 +2,6 @@
 
 A lightweight social media frontend built with vanilla JavaScript. Users can create accounts, publish posts, drop comments, edit profiles, and browse content with infinite scrolling.
 
-## Live Demo
-
-🔗 [https://comardes3c0399.netlify.app](https://comardes3c0399.netlify.app)
-
 ## Features
 
 - **Auth** — Register, login, logout with token-based auth
